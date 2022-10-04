@@ -9,12 +9,14 @@ import { TodoPageComponent } from './pages/todo-page/todo-page.component';
 import { todoRouts } from './routes';
 import { TodoWidgetComponent } from './widget/todo-widget/todo-widget.component';
 import { TodoCreateFormUiComponent } from './ui/todo-create-form-ui/todo-create-form-ui.component';
+import { TodoListUiComponent } from './ui/todo-list-ui/todo-list-ui.component';
 
 @NgModule({
   declarations: [
     TodoPageComponent,
     TodoWidgetComponent,
-    TodoCreateFormUiComponent
+    TodoCreateFormUiComponent,
+    TodoListUiComponent
   ],
   imports: [
     CommonModule,
