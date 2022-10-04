@@ -1,19 +1,34 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 
 import { Todo } from '../../model/todo';
 
 @Component({
-  selector: 'app-todo-list-ui',
-  templateUrl: './todo-list-ui.component.html',
-  styleUrls: ['./todo-list-ui.component.css']
+    selector: 'app-todo-list-ui',
+    templateUrl: './todo-list-ui.component.html',
+    styleUrls: ['./todo-list-ui.component.css']
 })
 export class TodoListUiComponent implements OnInit {
-  @Input()
-  todoList: Todo[] = [];
+    @Input()
+    todoList: Todo[] = [];
 
-  constructor() { }
+    @Output()
+    delete = new EventEmitter<number>();
 
-  ngOnInit(): void {
-  }
+    @Output()
+    toggle = new EventEmitter<number>();
+
+    constructor() { }
+
+    ngOnInit(): void {
+    }
+ 
+    onDelete(id: number) {
+        this.delete.emit(id);
+    }
+
+    onToggle(event, id: number) {
+        event.preventDefault();
+        this.toggle.emit(id);
+    }
 
 }
