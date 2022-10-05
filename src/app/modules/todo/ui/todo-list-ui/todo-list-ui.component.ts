@@ -8,6 +8,9 @@ import { Todo } from '../../model/todo';
     styleUrls: ['./todo-list-ui.component.css']
 })
 export class TodoListUiComponent implements OnInit {
+    
+    editIds: number[] = [];
+
     @Input()
     todoList: Todo[] = [];
 
@@ -16,6 +19,9 @@ export class TodoListUiComponent implements OnInit {
 
     @Output()
     toggle = new EventEmitter<number>();
+
+    @Output()
+    edit = new EventEmitter<{name: string, id: number}>();
 
     constructor() { }
 
@@ -26,9 +32,16 @@ export class TodoListUiComponent implements OnInit {
         this.delete.emit(id);
     }
 
-    onToggle(event, id: number) {
-        event.preventDefault();
+    onEditMode(id: number) {
+        this.editIds.push(id);
+    }
+
+    onToggle(id: number) {
         this.toggle.emit(id);
     }
 
+    onEdit(name: string, id: number) {
+        this.editIds = this.editIds.filter(editId => editId !== id);
+        this.edit.emit({name, id});
+    }
 }
