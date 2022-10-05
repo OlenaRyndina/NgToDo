@@ -16,6 +16,9 @@ export class TodoListItemEditUiComponent implements OnInit {
     @Output()
     edit = new EventEmitter<string>();
 
+    @Output()
+    cancel = new EventEmitter<void>();
+
     constructor() { }
 
     ngOnInit(): void {
@@ -26,6 +29,10 @@ export class TodoListItemEditUiComponent implements OnInit {
         if (this.name) {
             this.edit.emit(this.name);
         }
+    }
+
+    onCancel() {
+        this.cancel.emit();
     }
 
 }

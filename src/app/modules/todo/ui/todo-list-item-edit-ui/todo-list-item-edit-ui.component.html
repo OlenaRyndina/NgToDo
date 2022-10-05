@@ -4,5 +4,5 @@
 	    name="name"
 	    [(ngModel)]="name">
 	<button [disabled]="!name">Ok</button>
-	<button type="button">Cancel</button>
+	<button type="button" (click)="onCancel()">Cancel</button>
 </form>
