@@ -44,4 +44,8 @@ export class TodoListUiComponent implements OnInit {
         this.editIds = this.editIds.filter(editId => editId !== id);
         this.edit.emit({name, id});
     }
+
+    onCancel(id: number) {
+        this.editIds = this.editIds.filter(editId => editId !==id);
+    }
 }

@@ -11,7 +11,8 @@
 	<app-todo-list-item-edit-ui
 	    *ngIf="editIds.includes(todo.id)"
 	    [todo]="todo"
-	    (edit)="onEdit($event, todo.id)">		
+	    (edit)="onEdit($event, todo.id)"
+	    (cancel)="onCancel(todo.id)">		
 	</app-todo-list-item-edit-ui>
 	</li>
 </ul>
